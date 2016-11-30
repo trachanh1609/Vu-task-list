@@ -1,0 +1,62 @@
+INSTALLATION
+npm express mongojs ejs body-parser --save
+
+
+server.js , dependent on routes/index.js and routes/tasks.js
+
+Installing Angular 2
+from angular.io , get started
+- Create package.json,tsconfig.json,systemjs.config.js in /client
+- /clien$ npm install
+- create /client/app folder . The app will locate here
+- create /client/app/app.module.ts
+- copy content from docs to app.module.ts
+
+Installing bootstrap using bower
+$sudo npm install -g bower
+- create new file mea2n-brad/.bowerrc  and put the director .
+(This config will intall the bower component in the designated location)
+
+- $bower install bootstrap --save
+This will install boostrap and jQuery (bootstrap needs jQuery)
+
+Angular2 Components are stored in app/components folder
+-create app/components/tasks folder to store tasks component
+-create tasks.component.ts
+  copy content from app.component.ts to this tasks.component.ts
+  add this line to correct the location
+      moduleId: module.id,
+  edit selector: 'tasks'
+  edit templateUrl : 'tasks.component.html'
+-create tasks.component.html ( this is the template)
+-Update app.module.ts
+  imports TasksComponents
+  declarations: [ , TasksComponent]
+
+** Note: everytime .ts is updated, should run client$npm start to generate the .js file
+
+Edit tasks.component.html to setup the UI
+
+
+CREATE TaskService so it can be used across the app
+- Create folder app/services
+- Create file services/task.service.ts . Edit
+- Add this service to app.components.ts : Import + provider
+- Because we use Http module, we need to bring that to app.module.ts
+- We need to import this service to the tasks.component.ts
+
+\"lite-server\"
+
+- In task.service.ts create getTasks() service function for GET method
+- In tasks.component.ts , in the constructor, call this getTasks and check in console.log
+
+CREAT Task.ts for the Object Task
+- import that to tasks.component.ts before using
+Now this.tasks is an Object Task{title: '', isDone: ''} and is accessible through the app
+- In tasks.component.html, add *ngFor and use {{task.title}}
+- In tasks.component.html, add ngModel, submit=addTask($event)
+- This will give an error because angular2 need the formModule
+- In app.module.ts import FormsModule , import [ , , ] , there should be no more error
+
+- in tasks.component.ts , create title: string , this is the binding ngModel with the one in the .html/form
+- create a addTask(event){console.log(this.title)} to test it
