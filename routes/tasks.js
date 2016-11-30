@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var mongojs = require('mongojs');
-var db = mongojs('mongodb://vunguyen:xWL-KsQ-3sQ-WeK@ds135577.mlab.com:35577/mytasklist_vu', ['tasks']);
+// var mongojs = require('mongojs');
+// var db = mongojs('mongodb://vunguyen:xWL-KsQ-3sQ-WeK@ds135577.mlab.com:35577/mytasklist_vu', ['tasks']);
 
+var databaseUrl = process.env.MONGODB_URI; // "username:password@example.com/mydb"
+var collections = ["tasks"];
+var db = require("mongojs").connect(databaseUrl, collections);
 // accept GET request
 // GET all tasks
 router.get('/tasks', function(req, res, next){
