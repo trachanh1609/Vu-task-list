@@ -3,7 +3,7 @@ var router = express.Router();
 var mongojs = require('mongojs');
 // var db = mongojs('mongodb://vunguyen:xWL-KsQ-3sQ-WeK@ds135577.mlab.com:35577/mytasklist_vu', ['tasks']);
 
-var databaseUrl = process.env.MONGOLAB_URI; // "username:password@example.com/mydb"
+var databaseUrl = process.env.MONGODB_URI; // "username:password@example.com/mydb"
 var collections = ['tasks'];
 var db = mongojs(databaseUrl, collections);
 
