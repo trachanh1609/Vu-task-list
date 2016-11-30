@@ -5,7 +5,7 @@ var mongojs = require('mongojs');
 
 var databaseUrl = process.env.MONGODB_URI; // "username:password@example.com/mydb"
 var collections = ["tasks"];
-var db = mongojs(databaseUrl, collections);
+var db = mongojs(MONGODB_URI, collections);
 // accept GET request
 // GET all tasks
 router.get('/tasks', function(req, res, next){
