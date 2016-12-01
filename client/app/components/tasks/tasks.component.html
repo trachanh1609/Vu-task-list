@@ -9,7 +9,7 @@
     <div class="col-md-2">
       <input type="checkbox" [checked]="task.isDone" (click)="updateStatus(task)">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8" [ngClass]="{'line-through': task.isDone }">
       {{task.title}}
     </div>
     <div class="col-md-2">
